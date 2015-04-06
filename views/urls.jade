@@ -1,0 +1,10 @@
+extends layout
+block content
+	h1 Urls 
+	h2= "Total "+urls.length+" urls"
+	table.table.table-striped
+		for url in urls
+			tr
+				td= url.absPath
+				td= url.downloaded
+				td= url.parseTime

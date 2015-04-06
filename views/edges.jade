@@ -1,0 +1,15 @@
+extends layout
+block content
+	h2= "Total "+edges.length+" edges"
+
+	table.table.table-striped
+		tr
+			th
+				h3= "Target"
+			th
+				h3= "Source"
+		for edge in edges
+			tr
+				- if (typeof edge.vertexes[0] != 'undefined' && typeof edge.vertexes[1] != 'undefined')
+					td= edge.vertexes[0].absPath
+					td= edge.vertexes[1].absPath
