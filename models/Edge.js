@@ -4,7 +4,8 @@ var mongoose = require('mongoose')
 var Url = require('../models/Url.js');
 
 var EdgeSchema = new mongoose.Schema({
-    vertexes: [{ type: Schema.ObjectId, ref: 'Url' }]
+    source: { type: Schema.ObjectId, ref: 'Url' },
+    target: { type: Schema.ObjectId, ref: 'Url' }
 });
 
 module.exports = mongoose.model('Edge', EdgeSchema);

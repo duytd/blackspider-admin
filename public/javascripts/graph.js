@@ -17,10 +17,10 @@ jQuery(document).ready(function() {
 
         var newGraphLinks = [];
         graph.links.forEach(function(link, index, array) {
-            if (typeof link.vertexes[1] != 'undefined' && typeof link.vertexes[0] != 'undefined') {
+            if (typeof link.target != 'undefined' && typeof link.source != 'undefined') {
 
-                var sourceNode = graph.nodes.filter(function(n) { return n._id === link.vertexes[1]._id; })[0],
-                        targetNode = graph.nodes.filter(function(n) { return n._id === link.vertexes[0]._id; })[0];
+                var sourceNode = graph.nodes.filter(function(n) { return n._id === link.source._id; })[0],
+                        targetNode = graph.nodes.filter(function(n) { return n._id === link.target._id; })[0];
                 newGraphLinks.push({source: sourceNode, target: targetNode});
             }
         })

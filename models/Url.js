@@ -5,6 +5,7 @@ var UrlSchema = new mongoose.Schema({
   rootUrl: Boolean,
   downloaded: Boolean,
   parseTime: Date,
+  pageRank: Number
 });
 
 UrlSchema.statics.getUrlById = function getUrlById(id, callback) {

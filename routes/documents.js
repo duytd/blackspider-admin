@@ -2,13 +2,13 @@ var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
 
-var Url = require('../models/Url.js');
+var Document = require('../models/Document.js');
 
 /* GET /todos listing. */
 router.get('/', function(req, res, next) {
-  Url.find(function (err, urls) {
+    Document.find({}).populate('urlId').populate('categoryId').exec(function (err, docs) {
     if (err) return next(err);
-    res.render('urls', {urls: urls, scripts: [] });
+    res.render('docs', {docs: docs, scripts: [] });
   });
 });
 

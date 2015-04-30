@@ -1,0 +1,19 @@
+extends layout
+block content
+    h1 Documents 
+    h2= "Total "+docs.length+" documents"
+    table.table.table-striped
+        tr
+            th= "URL"
+            th= "Tokenized"
+            th= "Category"
+            th= "Pvj"
+            for doc in docs
+                tr
+                    td= doc.urlId.absPath
+                    td= doc.tokenized
+                    -if (doc.categoryId != null)
+                        td= doc.categoryId.name
+                    -else
+                        td= "N/A"
+                    td= doc.Pvj
