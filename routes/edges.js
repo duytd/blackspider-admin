@@ -17,9 +17,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/graph.json', function(req, res, next) {
-    Edge.find({}).populate('source','_id').populate('target','_id').exec(function(err, edges) {
+    Edge.find({}).limit(150).populate('source','_id').populate('target','_id').exec(function(err, edges) {
         if (err) return next(err);
-        Url.find({}).select('absPath').exec(function(err, urls) {
+        Url.find({}).limit(250).select('absPath').exec(function(err, urls) {
             res.json({
                 "nodes": urls,
                 "links": edges
