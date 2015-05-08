@@ -5,6 +5,8 @@ var urls = require('./routes/urls');
 var edges = require('./routes/edges');
 var docs = require('./routes/documents');
 var pages = require('./routes/pages');
+var training_urls = require('./routes/training_urls');
+var testing_urls = require('./routes/testing_urls');
 
 app.set('views', './views')
 app.set('view engine', 'jade')
@@ -14,6 +16,8 @@ app.use('/', pages);
 app.use('/urls', urls);
 app.use('/edges', edges);
 app.use('/documents', docs);
+app.use('/training-data', training_urls);
+app.use('/testing-data', testing_urls);
 app.use(express.static(__dirname + '/public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 

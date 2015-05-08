@@ -1,0 +1,12 @@
+extends layout
+block content
+    h1 Training Dataset
+    h2= "Total "+training_urls.length+" urls"
+    table.table.table-striped
+        tr
+            th= "URL"
+            th= "Category"
+            for url in training_urls
+                tr
+                    td= url.urlId.absPath
+                    td= url.categoryId.name

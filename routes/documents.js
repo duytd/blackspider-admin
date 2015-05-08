@@ -6,7 +6,7 @@ var Document = require('../models/Document.js');
 
 /* GET /todos listing. */
 router.get('/', function(req, res, next) {
-    Document.find({}).populate('urlId').populate('categoryId').exec(function (err, docs) {
+    Document.find({categoryId: {'$ne': null }}).populate('urlId').populate('categoryId').exec(function (err, docs) {
     if (err) return next(err);
     res.render('docs', {docs: docs, scripts: [] });
   });

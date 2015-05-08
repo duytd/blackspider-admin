@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
     var width = $('#graph').width(),
-        height = 500;
+        height = 1000;
 
     var color = d3.scale.category20();
 

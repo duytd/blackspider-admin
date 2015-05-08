@@ -1,0 +1,23 @@
+extends layout
+block content
+    h1 Testing Dataset
+    h2= "Total "+testing_urls.length+" urls"
+    table.table.table-striped
+        tr
+            th= "URL"
+            th= "Expected Result"
+            th= "Actual Result"
+            for url in testing_urls
+                tr
+                    td= url.urlId.absPath
+                    td= url.expectedResult.name
+                    - if (url.actualResult == null)
+                        td= "N/A"
+                    - else                        
+                        - if (url.expectedResult.name == url.actualResult.name)
+                            td 
+                               div.label.label-success= url.actualResult.name
+                        -else
+                            td 
+                               div.label.label-danger= url.actualResult.name
+                        
