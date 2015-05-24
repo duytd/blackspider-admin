@@ -6,7 +6,7 @@ var Url = require('../models/Url.js');
 
 /* GET /todos listing. */
 router.get('/', function(req, res, next) {
-  Url.find(function (err, urls) {
+  Url.find({}).exec(function (err, urls) {
     if (err) return next(err);
     res.render('urls', {urls: urls, scripts: [] });
   });

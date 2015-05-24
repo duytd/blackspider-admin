@@ -14,11 +14,10 @@ jQuery(document).ready(function() {
         .attr("height", height);
 
     d3.json("/edges/graph.json", function(error, graph) {
-
+        console.log(graph)
         var newGraphLinks = [];
         graph.links.forEach(function(link, index, array) {
-            if (typeof link.target != 'undefined' && typeof link.source != 'undefined') {
-
+            if (link.target && link.source) {
                 var sourceNode = graph.nodes.filter(function(n) { return n._id === link.source._id; })[0],
                         targetNode = graph.nodes.filter(function(n) { return n._id === link.target._id; })[0];
                 newGraphLinks.push({source: sourceNode, target: targetNode});

@@ -10,6 +10,6 @@ block content
 				h3= "Parent"
 		for edge in edges
 			tr
-				- if (typeof edge.source != 'undefined' && typeof edge.target != 'undefined')
+				- if (edge.source && edge.target)
 					td= edge.target.absPath
 					td= edge.source.absPath

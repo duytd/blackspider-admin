@@ -2,6 +2,8 @@ extends layout
 block content
     h1 Testing Dataset
     h2= "Total "+testing_urls.length+" urls"
+    h3= "Accuracy: "+count/classifiedCount*100+"%"
+    p= "Remaining: "+(testing_urls.length-classifiedCount)+" urls"
     table.table.table-striped
         tr
             th= "URL"
